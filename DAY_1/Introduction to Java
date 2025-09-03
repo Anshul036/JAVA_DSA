@@ -1,1 +1,52 @@
 
+How Java executes
+Java source is compiled to .class bytecode, then loaded, verified, and executed by the JVM using an interpreter and JIT for performance.
+
+This process enables the same bytecode to run across platforms that have a JVM implementation.
+
+text
+.java (source)
+   └─> javac (compiler)
+        └─> .class (bytecode)
+             └─> Class Loader
+                  └─> Bytecode Verifier
+                       └─> Interpreter ⇄ JIT
+                            └─> Runtime
+                                 └─> Hardware (machine code)
+Flowchart: compile to bytecode → load → verify → interpret/compile just‑in‑time → run on hardware.
+
+Platform independence
+Bytecode is OS‑neutral; the platform‑specific JVM translates it to native machine code at runtime, so Java is platform independent while JVM binaries are platform dependent.
+
+C/C++ typically compiles directly to platform‑specific executables, whereas Java’s bytecode model decouples compile and execution targets.
+
+JDK vs JRE vs JVM vs JIT
+JDK: JRE plus developer tools like javac, jar, javadoc; used to build and run programs.
+
+JRE: JVM plus core libraries to run Java applications without development tools.
+
+JVM: Execution engine that loads, verifies, and executes bytecode via interpreter and JIT compilation.
+
+JIT: Compiles “hot” bytecode paths to native code just in time, caching results to avoid repeated interpretation and speed up execution.
+
+Nested view: JDK ⊃ JRE ⊃ JVM ⊃ JIT (JIT is a component used by the JVM during execution).
+
+Compile time vs runtime flow
+Compile time: .java → javac → .class (bytecode) produced by the JDK compiler.
+
+Runtime (inside JVM): Class Loader loads classes → Bytecode Verifier checks safety and correctness → Interpreter runs bytecode line‑by‑line while JIT compiles hot methods to native code → code executes on hardware with managed memory.
+
+text
+Compile time:  .java ──javac──> .class
+Runtime:       Class Loader → Bytecode Verifier → Interpreter/JIT → Runtime → Hardware
+Flowchart emphasizes class loading, verification, and mixed interpretation/JIT execution in the JVM.
+
+Class Loader and Bytecode Verifier notes
+Class Loader locates classes, creates their binary representation in memory, links them, and prepares static fields before execution.
+
+The Bytecode Verifier ensures type safety, stack discipline, and access rules, rejecting malformed or unsafe class files before interpretation/compilation proceeds.
+
+Key takeaways
+Java compiles once to bytecode and runs anywhere a compatible JVM exists, with JIT boosting performance during execution.
+
+Development uses the JDK, deployment can rely on the JRE, while the JVM enforces safety via loading and verification before executing or JIT‑compiling code.
