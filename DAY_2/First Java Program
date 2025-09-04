@@ -1,0 +1,184 @@
+First Java Program
+
+
+Structure of a Java File
+Java source code is saved as .java files.
+
+All code must be inside a class; every .java file represents one class.
+
+The class name should match the file name, and is typically capitalized.
+
+The main class (with matching filename) should be public.
+
+Execution starts at the main method in the public class.
+
+Compiling and Running
+Compile: javac Main.java (creates Main.class containing bytecode).
+
+Run: java Main.
+
+Hello World Example
+java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+public: access modifier (class accessible from anywhere)
+
+class: groups data/functions
+
+Main: class name (matches filename)
+
+static: main runs without creating an object
+
+void: does not return anything
+
+main: method entry point
+
+String[] args: command-line String array
+
+Packages
+Packages are folders that contain Java files.
+
+Help organize code and provide structure.
+
+Primitive Data Types
+Primitive types are basic and not breakable (cannot be subdivided).
+
+Examples:
+
+int i = 26; (integer)
+
+char c = 'A'; (character)
+
+float f = 98.67f; (floating-point number)
+
+double d = 45676.58975; (larger decimal)
+
+long l = 15876954832558315L; (large integer)
+
+boolean b = false; (true/false)
+
+Suffixes: f for float, L for long
+
+Literals and Identifiers
+Literal: actual value (e.g. 10 in int a = 10;)
+
+Identifier: names for variables, methods, classes, etc. (e.g. a in above).
+
+Comments
+Single line: // comment
+
+Multi line: /* comment */
+
+Comments are ignored by the compiler.
+
+Input in Java (Scanner Class)
+Import Scanner: import java.util.Scanner;
+
+Create and use:
+
+java
+Scanner input = new Scanner(System.in);
+int rollno = input.nextInt();
+float marks = input.nextFloat();
+String name = input.next();
+String sentence = input.nextLine();
+nextInt(): read integer
+
+nextFloat(): read float
+
+next(): reads single word/string
+
+nextLine(): reads full line including spaces
+
+Example: Sum of Two Numbers
+java
+import java.util.Scanner;
+public class Sum {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter first number");
+        int num1 = input.nextInt();
+        System.out.print("Enter second number");
+        int num2 = input.nextInt();
+        int sum = num1 + num2;
+        System.out.println("Sum = " + sum);
+    }
+}
+Type Conversion and Type Casting
+Automatic type conversion if types are compatible and destination is bigger.
+
+Type casting to convert values:
+
+java
+int num = (int)(67.564f);
+Automatic Type Promotion in Expressions
+Operands (byte, short, char) promoted to int in expressions.
+
+If one is long, float, double, the expression promotes accordingly.
+
+Example: Type Promotion
+java
+public class TypePromotion {
+    public static void main(String[] args) {
+        byte b = 42;
+        char c = 'a';
+        short s = 1024;
+        int i = 50000;
+        float f = 5.67f;
+        double d = 0.1234;
+        double result = (f*b) + (i/c) - (d*s);
+        System.out.println((f*b) + " " + (i/c) + " " + (d*s));
+        System.out.println(result);
+    }
+}
+Control Structures
+If Statement
+Executes only if condition is true.
+
+java
+public class ifstatement {
+    public static void main(String[] args) {
+        int a = 10;
+        if (a == 10) {
+            System.out.println("Hello");
+        }
+    }
+}
+While Loop
+Runs while condition is true.
+
+java
+public class whileloop {
+    public static void main(String[] args) {
+        int count = 1;
+        while (count != 5) {
+            System.out.println(count);
+            count++;
+        }
+    }
+}
+For Loop
+Runs fixed number of times.
+
+java
+public class forloop {
+    public static void main(String[] args) {
+        for (int count = 1; count != 5; count++) {
+            System.out.println(count);
+        }
+    }
+}
+Example: Celsius to Fahrenheit Conversion
+java
+import java.util.Scanner;
+public class CelsiusToFahrenheit {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        float tempC = in.nextFloat();
+        float tempF = (tempC*9/5)+32;
+        System.out.println(tempF);
+    }
+}
