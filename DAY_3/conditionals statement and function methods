@@ -1,0 +1,79 @@
+Java conditionals, switch, methods, arguments, scoping, shadowing, and overloading control program flow and organize code; learn the boolean-driven if/else and the value-matching switch, then master how methods accept parameters, how scope rules visibility, how shadowing hides names, and how overloading lets multiple methods share a name with different parameter lists.
+
+Conditional statements
+Purpose: Direct execution based on a boolean condition using if, else if, and else, where the expression inside parentheses must evaluate to true or false.
+
+Syntax and flow: if (cond) { … } else if (cond2) { … } else { … }; only the matching block executes, and missing braces mean only a single following statement is controlled.
+
+Tips: Combine comparisons and logical operators, and order else-if branches from most specific to least specific to avoid unreachable or incorrect branches.
+
+Switch case
+Purpose: Choose one of many branches by matching a single value (e.g., int, char, String, enums) against case labels, often cleaner than long else-if ladders.
+
+Syntax essentials: switch (expr) { case A: … break; case B: … break; default: …; }, where break prevents fallthrough; Java supports strings and enums in switch for readability.
+
+When to use: Prefer switch for discrete exact matches; stick to if/else for range checks or complex boolean logic.
+
+Function (method)
+Definition: A method is a named block of code associated with a class that may take parameters and optionally return a value, declared with modifiers, return type, name, parameters, and a body.
+
+Anatomy: access modifiers (public/private), optional static, return type (void or a type), methodName(Type p1, Type p2) { … }, and return statements for non-void methods.
+
+Usage: Methods encapsulate behavior, promote reuse, and improve testability; static methods belong to the class, instance methods require an object.
+
+Argument (parameter passing)
+Parameters vs. arguments: Parameters are the variables in the method declaration; arguments are the actual values passed at call sites.
+
+Passing mechanism: Java is pass‑by‑value; the value of a primitive is copied, and for objects the reference value is copied, allowing mutation of the object but not rebinding the caller’s reference.
+
+Tips: Use varargs (Type... xs) for flexible counts, and validate inputs to avoid null dereferences or illegal states.
+
+Scoping
+Definition: Scope is the region where a name (variable, parameter) is visible; block scope is delimited by braces, method scope by the method body, and class scope for fields and methods.
+
+Rules: A variable exists only within its declaring block; the same name can be reused in a nested block without affecting the outer variable unless shadowing occurs.
+
+Practical note: Keep variables in the smallest necessary scope to reduce bugs and improve readability.
+
+Shadowing
+Definition: A declaration in an inner scope with the same name as an outer declaration hides the outer one within that inner scope, which can lead to confusion if used carelessly.
+
+Examples: A method parameter can shadow a field with the same name; refer to the field explicitly with this.fieldName to disambiguate.
+
+Guidance: Avoid shadowing in most cases; prefer distinct, descriptive names to prevent logic errors.
+
+Overloading
+Definition: Multiple methods in the same class share the same name but differ in parameter lists (number, types, or order), chosen at compile time via overload resolution.
+
+Rules: Return type alone cannot distinguish overloads; changing only access modifiers or exceptions doesn’t create a different signature.
+
+Use cases: Provide convenient APIs (e.g., print(String), print(int)), and pair with default values by offering multiple overloads that delegate to a full-parameter version.
+
+Quick code snippets
+If/else and switch:
+
+java
+int score = 85;
+if (score >= 90)      System.out.println("A");
+else if (score >= 80) System.out.println("B");
+else                  System.out.println("C");
+
+String day = "SUN";
+switch (day) {
+  case "SAT": case "SUN": System.out.println("Weekend"); break;
+  default:                System.out.println("Weekday");
+}
+Method, arguments, scope, and overloading:
+
+java
+class Calc {
+  // Overloads
+  int add(int a, int b) { return a + b; }
+  double add(double a, double b) { return a + b; }
+
+  // Shadowing example
+  private int total = 0;
+  void addToTotal(int total) { // parameter shadows field
+    this.total += total;      // disambiguate with 'this'
+  }
+}
