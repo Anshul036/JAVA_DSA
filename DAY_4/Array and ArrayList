@@ -1,0 +1,51 @@
+Array
+Fixed Size: Once created, the size of an array cannot be changed.
+
+Homogeneous: Stores elements of the same data type (primitive or object).
+
+Syntax: Defined with square brackets int[] arr = new int;.
+
+Memory: Allocates contiguous memory blocks for elements.
+
+Performance: Fast access due to fixed size and contiguous storage.
+
+Primitive Support: Can directly store primitive types (int, char, etc.).
+
+Multi-dimensional: Supports multi-dimensional arrays (int[][] matrix).
+
+Traversal: Uses for and enhanced for-each loops.
+
+Length: Fixed length accessed using .length.
+
+Limitations: No built-in methods for dynamic operations like insertion or deletion.
+
+ArrayList
+Dynamic Size: Can grow or shrink dynamically as elements are added or removed.
+
+Part of Collections Framework: Implements List interface; found in java.util.
+
+Stores Objects: Holds objects, uses autoboxing for primitives (int → Integer).
+
+Syntax: Created as ArrayList<Integer> list = new ArrayList<>();.
+
+Flexibility: Provides built-in methods—add(), remove(), size(), contains(), etc.
+
+Memory: Internally backed by an array that resizes when needed.
+
+Single Dimensional: Does not support multi-dimensional lists directly.
+
+Traversal: Supports for-each, Iterator, and ListIterator.
+
+Performance: Slightly slower than array due to dynamic resizing and method calls.
+
+Generics Support: Type-safe, avoids casting and runtime type errors.
+
+Key Differences Summary
+Aspect	Array	ArrayList
+Size	Fixed	Dynamic
+Data Type	Primitives and Objects	Only Objects (autoboxing for primitives)
+Performance	Faster	Slight overhead due to resizing and method calls
+Memory	Contiguous block	Internal dynamic resizing array
+Methods	None (basic)	Rich API (add, remove, contains)
+Multi-dimensional	Supported	Not supported directly
+Usage	When size known, fixed	When size changes or unknown
