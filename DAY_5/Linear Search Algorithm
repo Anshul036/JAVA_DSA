@@ -1,0 +1,103 @@
+Linear Search in Java
+What is Searching?
+Searching is the process of finding the position of a given value in a list of values.
+
+Linear / Sequential Search
+Linear Search (also called Sequential Search) is the simplest search algorithm used for finding an element in a list.
+
+In this method, every element in the list is checked one by one until the desired value is found or the list ends.
+
+Works for both sorted and unsorted arrays.
+
+Use Cases
+Suitable for small data sets or unsorted arrays.
+
+Used when the array is rarely searched, and sorting isn't worthwhile.
+
+Helps when data structure doesn't support faster searching methods (like binary search).
+
+How Does It Work?
+Start at the first element of the array.
+
+Compare the element with the target value.
+
+If matching, return the index.
+
+If not matching, move to the next element.
+
+Repeat steps 2-4 until the end of the array.
+
+If not found after traversing the array, return "not found" indicator (e.g., -1).
+
+Example Array
+java
+int[] arr = {18, 12, 19, 77, 29, 50}; // unsorted array
+int target = 77;
+Here, the search checks each element in order until it finds 77.
+
+Time Complexity
+Best Case: O(1) (if target is first element)
+
+Worst Case: O(n) (if target is last or absent)
+
+Space Complexity
+Always O(1).
+
+Pseudocode
+text
+for each element in array:
+    if element == target:
+        return index
+return -1
+Java Implementation Example
+Here’s a sample program implementing linear search and returning the index if found, or -1 if not found:
+
+java
+public class LinearSearchDemo {
+    // Function to perform linear search
+    public static int linearSearch(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i; // Return index if found
+            }
+        }
+        return -1; // Return -1 if not found
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {18, 12, 19, 77, 29, 50};
+        int target = 77;
+        int result = linearSearch(arr, target);
+        if (result != -1) {
+            System.out.println("Element found at index: " + result);
+        } else {
+            System.out.println("Element not found in array.");
+        }
+    }
+}
+Advantages & Limitations
+Advantages:
+
+Simple to implement
+
+Works with any array (sorted or unsorted)
+
+Limitations:
+
+Inefficient for large data sets
+
+More comparisons than binary search for large sorted arrays
+
+Linear Search Variations
+Search for all occurrences: Collect indices of all matches.
+
+Search in reverse: Start from end, go backward.
+
+Search in multi-dimensional arrays: Extend logic to nested loops.
+
+When to Use Linear Search?
+When the list is small and unsorted
+
+When quick implementation and simplicity are desired
+
+When data is frequently updated, making sorting costly
